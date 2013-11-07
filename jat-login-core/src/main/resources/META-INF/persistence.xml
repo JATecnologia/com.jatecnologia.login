@@ -5,6 +5,9 @@
   <persistence-unit name="jatPU" transaction-type="JTA">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <jta-data-source>java:/jat-ds</jta-data-source>
-    <class>com.jatecnologia.login.core.entity.Login</class>
+    <class>com.jatecnologia.login.core.entity.JatGroup</class>
+    <class>com.jatecnologia.login.core.entity.JatUser</class>
+    <class>com.jatecnologia.login.core.entity.JatUserGroup</class>
+    <class>com.jatecnologia.login.core.entity.JatUserGroupPK</class>
   </persistence-unit>
 </persistence>

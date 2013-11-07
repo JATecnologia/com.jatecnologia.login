@@ -13,6 +13,7 @@
     </scm>    
     <modules>
         <module>jat-login-core</module>        
+        <module>jat-login-fe</module>
     </modules>
     <dependencyManagement>
         <dependencies>

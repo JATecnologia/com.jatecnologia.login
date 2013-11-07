@@ -3,21 +3,22 @@ package com.jatecnologia.login.core.entity;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 
 /**
- * The persistent class for the jat_login database table.
+ * The persistent class for the jat_user database table.
  * 
  */
 @Entity
-@Table(name="jat_login")
-@NamedQuery(name="Login.findAll", query="SELECT l FROM Login l")
-public class Login implements Serializable {
+@Table(name="jat_user")
+@NamedQuery(name="JatUser.findAll", query="SELECT j FROM JatUser j")
+public class JatUser implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.TABLE)
-	private String id;
+	private String login;
 
 	private String email;
 
@@ -30,15 +31,19 @@ public class Login implements Serializable {
 	@Column(name="update_user")
 	private String updateUser;
 
-	public Login() {
+	//bi-directional many-to-one association to JatUserGroup
+	@OneToMany(mappedBy="jatUser")
+	private List<JatUserGroup> jatUserGroups;
+
+	public JatUser() {
 	}
 
-	public String getId() {
-		return this.id;
+	public String getLogin() {
+		return this.login;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
 	public String getEmail() {
@@ -71,6 +76,28 @@ public class Login implements Serializable {
 
 	public void setUpdateUser(String updateUser) {
 		this.updateUser = updateUser;
+	}
+
+	public List<JatUserGroup> getJatUserGroups() {
+		return this.jatUserGroups;
+	}
+
+	public void setJatUserGroups(List<JatUserGroup> jatUserGroups) {
+		this.jatUserGroups = jatUserGroups;
+	}
+
+	public JatUserGroup addJatUserGroup(JatUserGroup jatUserGroup) {
+		getJatUserGroups().add(jatUserGroup);
+		jatUserGroup.setJatUser(this);
+
+		return jatUserGroup;
+	}
+
+	public JatUserGroup removeJatUserGroup(JatUserGroup jatUserGroup) {
+		getJatUserGroups().remove(jatUserGroup);
+		jatUserGroup.setJatUser(null);
+
+		return jatUserGroup;
 	}
 
 }

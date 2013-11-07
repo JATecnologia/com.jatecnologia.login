@@ -7,7 +7,7 @@
 		<groupId>com.jatecnologia.login</groupId>
   	</parent>	
 	<artifactId>jat-login-fe</artifactId>
-  	<name>jat-login-FE</name>
+  	<name>jat-login-fe</name>
   	<url>www.jatecnologia.com/modules/login</url>
   	<organization>
   		<name>J. A. Tecnologia</name>
