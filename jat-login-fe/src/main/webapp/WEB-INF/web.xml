@@ -1,19 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
-  <display-name>store</display-name>
-  <servlet>
-    <servlet-name>Faces Servlet</servlet-name>
-    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Faces Servlet</servlet-name>
-    <url-pattern>*.xhtml</url-pattern>
-  </servlet-mapping>
-  <welcome-file-list>
-    <welcome-file>index.xhtml</welcome-file>
-  </welcome-file-list>
-  <context-param>
-    <param-name>primefaces.THEME</param-name>
-    <param-value>humanity</param-value>
-  </context-param>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" 
+			xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+	id="WebApp_ID" version="3.0">
+    <display-name>JAT-Login</display-name>  
+	<servlet>
+	    <servlet-name>Faces Servlet</servlet-name>
+	    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>Faces Servlet</servlet-name>
+	    <url-pattern>*.xhtml</url-pattern>
+	</servlet-mapping>
+  	<welcome-file-list>
+    	<welcome-file>/login.xhtml</welcome-file>
+  	</welcome-file-list>
+  
+  	<!-- PrimeFaces -->
+	<context-param>
+    	<param-name>primefaces.THEME</param-name>
+    	<param-value>humanity</param-value>
+  	</context-param>
+	
+	<!-- CONFIGURACAO JAAS -->
+<!-- 	<security-constraint> -->
+	
+<!--         <web-resource-collection> -->
+<!--             <web-resource-name>JAT-Login</web-resource-name> -->
+            
+<!--             <url-pattern>/cadastro/*</url-pattern> -->
+<!--             <url-pattern>/matricula/*</url-pattern> -->
+<!--         </web-resource-collection> -->
+        
+<!--         <auth-constraint> -->
+<!--             <role-name>SECRETARIA_ROLE</role-name> -->
+<!--         </auth-constraint> -->
+        
+<!--     </security-constraint> -->
+    
+<!--     <security-constraint> -->
+<!--         <web-resource-collection> -->
+<!--             <web-resource-name>Diretor e Aluno</web-resource-name> -->
+<!--             <url-pattern>/matricula/consultarMatricula.xhtml</url-pattern> -->
+<!--         </web-resource-collection> -->
+        
+<!--         <auth-constraint> -->
+<!--             <role-name>DIRETOR_ALUNO_ROLE</role-name> -->
+<!--         </auth-constraint> -->
+        
+<!--     </security-constraint> -->
+    
+<!--     <security-constraint> -->
+<!--         <web-resource-collection> -->
+<!--             <web-resource-name>todos os usuario logados</web-resource-name> -->
+<!--             <url-pattern>/layout/*</url-pattern> -->
+<!--         </web-resource-collection> -->
+<!--         <auth-constraint> -->
+<!--             <role-name>PUBLIC_ROLE</role-name>   -->
+<!--         </auth-constraint> -->
+<!--     </security-constraint> -->
+    
+<!--     <security-constraint>   -->
+<!--           <web-resource-collection>   -->
+<!--                 <web-resource-name>HTTP PAGES</web-resource-name>   -->
+<!--                 <url-pattern>/*</url-pattern>   -->
+<!--                 <http-method>GET</http-method>   -->
+<!--                 <http-method>POST</http-method>   -->
+<!--           </web-resource-collection>   -->
+<!--           <user-data-constraint>   -->
+<!--                <transport-guarantee>CONFIDENTIAL</transport-guarantee>   -->
+<!--           </user-data-constraint>   -->
+<!--    </security-constraint>   -->
+  
+<!--   <security-role> -->
+<!-- 			<role-name>SECRETARIA_ROLE</role-name> -->
+<!--   </security-role> -->
+<!-- 	<security-role> -->
+<!--       <role-name>DIRETOR_ALUNO_ROLE</role-name> -->
+<!--     </security-role> -->
+<!--   <security-role> -->
+<!--       <role-name>PUBLIC_ROLE</role-name> -->
+<!--     </security-role> -->
+<!--     <security-role> -->
+<!--       <role-name>ADMIN_ROLE</role-name> -->
+<!--     </security-role> -->
 </web-app>

@@ -6,17 +6,29 @@
     <packaging>pom</packaging>
     <properties>
         <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>ISO-8859-1</project.reporting.outputEncoding>        
+        <project.reporting.outputEncoding>ISO-8859-1</project.reporting.outputEncoding> 
+        
+        <version.hibernate>4.2.7.Final</version.hibernate>
+	    <version.javaee>6.0</version.javaee>
+	    <version.primefaces>3.5</version.primefaces>
+	    <version.commons-lang>2.5</version.commons-lang>
+	    <version.theme>1.0.8</version.theme>       
     </properties>
     <scm>
         
     </scm>    
+   
     <modules>
         <module>jat-login-core</module>        
         <module>jat-login-fe</module>
     </modules>
-    <dependencyManagement>
+    <dependencyManagement>    
         <dependencies>
+        	<dependency>
+		      <groupId>commons-lang</groupId>
+		      <artifactId>commons-lang</artifactId>
+		      <version>${version.commons-lang}</version>
+		    </dependency>
             <dependency>
                 <groupId>com.jatecnologia.login</groupId>
                 <artifactId>jat-login-core</artifactId>
@@ -30,8 +42,24 @@
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-entitymanager</artifactId>
-                <version>4.2.7.Final</version>
-            </dependency>            
+                <version>${version.hibernate}</version>
+            </dependency>     
+            <dependency>
+      			<groupId>org.primefaces</groupId>
+      			<artifactId>primefaces</artifactId>
+      			<version>${version.primefaces}</version>
+    		</dependency>
+    		<dependency>
+	      		<groupId>org.primefaces.themes</groupId>
+	      		<artifactId>humanity</artifactId>
+	      		<version>${version.theme}</version>
+	    	</dependency>       
+	    	<dependency>
+	      		<groupId>javax</groupId>
+	      		<artifactId>javaee-api</artifactId>
+	      		<version>${version.javaee}</version>
+	      		<scope>provided</scope>
+	    	</dependency>
         </dependencies>
     </dependencyManagement>
     <build>
@@ -116,4 +144,12 @@
             </plugins>
         </pluginManagement>
     </build>
+    <repositories>
+	    <repository>
+			<id>prime-repo</id>
+			<name>Prime Technology Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+    </repositories>
 </project>
