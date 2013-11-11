@@ -4,28 +4,17 @@
   xmlns:ui="http://java.sun.com/jsf/facelets"
   xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
   xmlns:p="http://primefaces.org/ui">
-<html>
-  <h:head>
-    <title>#{msg['nome-loja']}</title>
-    <meta http-equiv="content-type" content="text/xhtml; charset=UTF-8" />
-    <h:outputStylesheet name="loja.css" library="css" />
-  </h:head>
-
-  <body>
-    <div id="page">
-      <div id="header">
-        <span class="titulo">#{msg['nome-loja']}</span>
-        <span class="subtitulo">#{msg['exemplo-carrinho']}</span>
-        <span class="links">
-          <h:link value="#{msg['lista-de-produtos']}" outcome="index" styleClass="link" />
-          <h:link value="#{msg['meu-carrinho']}" outcome="carrinho" styleClass="link" />
-        </span>
-        <hr />
-      </div>
-      <div id="body">
-        <ui:insert name="body" />
-      </div>
-    </div>
-  </body>
-</html>
+	<html>
+	  <h:head>
+	    <title>#{msg['nome-loja']}</title>
+	    <meta http-equiv="content-type" content="text/xhtml; charset=UTF-8" />
+<!-- 	    <h:outputStylesheet name="normalize.css" library="css" /> -->
+	    <h:outputStylesheet name="jat-login.css" library="css" />
+	  </h:head>
+	  <body>
+	      <div id="body">
+	        <ui:insert name="body" />
+	      </div>
+	  </body>
+	</html>
 </f:view>

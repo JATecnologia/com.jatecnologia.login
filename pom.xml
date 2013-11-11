@@ -10,7 +10,7 @@
         
         <version.hibernate>4.2.7.Final</version.hibernate>
 	    <version.javaee>6.0</version.javaee>
-	    <version.primefaces>3.5</version.primefaces>
+	    <version.primefaces>4.0</version.primefaces>
 	    <version.commons-lang>2.5</version.commons-lang>
 	    <version.theme>1.0.8</version.theme>       
     </properties>

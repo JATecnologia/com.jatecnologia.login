@@ -7,28 +7,47 @@
 
 <ui:composition template="/template/template-login.xhtml">
 <ui:define name="body">
-	<h:form>
-		<p:panel header="Faça o Login para Entrar no Sistema"
-		    style="width: 400px; margin: auto;">
-		    
-        	<h:panelGrid columns="2" >
-        	
-            <h:outputLabel value="Nome Usuário:" />
-            
-            <h:inputText id="username"  value="#{loginBean.userName}"  />
-             
-               
-            <h:outputLabel value="Senha:  " />
-            
-            <h:inputSecret id="password" value="#{loginBean.password}" />
-              
-            
-             <h:outputText value="" />
-            <h:commandButton action="#{loginBean.login}" value="Login"/>           
-            </h:panelGrid>
-            
-        </p:panel>	
-    </h:form>
-  </ui:define>
+<h:body onload="PF('dlg').show()"> 
+<!-- <h:body > -->
+	<h:form id="form">
+		<h1>Testing...</h1>
+	
+	    <p:growl id="growl" showDetail="true" life="3000" />  
+	  
+ 	    <p:dialog id="dialog" header="Login" widgetVar="dlg" modal="false" resizable="false">   
+	  
+	        <h:panelGrid columns="2" cellpadding="5">  
+	            <h:outputLabel for="username" value="Username:" />  
+	            <p:inputText value="#{loginMB.login}"   
+	                    id="username" required="true" label="username" />  
+	              
+	            <h:outputLabel for="password" value="Password:" />  
+	            <h:inputSecret value="#{loginMB.password}"   
+	                    id="password" required="true" label="password" />  
+	              
+	            <f:facet name="footer">  
+	                <p:commandButton id="loginButton" value="Login" update="growl"  type="submit"
+	                    actionListener="#{loginMB.login}"   
+	                    oncomplete="handleLoginRequest(xhr, status, args)"/>  
+	            </f:facet>  
+	        </h:panelGrid>  
+	    </p:dialog>      
+	</h:form>
+	<script type="text/javascript">  
+    function handleLoginRequest(xhr, status, args) {  
+        if(args.validationFailed || !args.loggedIn) {  
+            PF('dlg').jq.effect("shake", { times:5 }, 100);  
+        }   
+        else {  
+            PF('dlg').hide();  
+            $('#loginLink').fadeOut();  
+        }  
+    }  
+</script>  
+</h:body>
+	
+</ui:define>
+
 </ui:composition>
+
 </html>
