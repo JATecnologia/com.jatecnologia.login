@@ -12,7 +12,8 @@
 	    <version.javaee>6.0</version.javaee>
 	    <version.primefaces>4.0</version.primefaces>
 	    <version.commons-lang>2.5</version.commons-lang>
-	    <version.theme>1.0.8</version.theme>       
+	    <version.theme>1.0.8</version.theme>      
+	    <version.jat-commons>1.0.0</version.jat-commons> 
     </properties>
     <scm>
         
@@ -29,6 +30,11 @@
 		      <artifactId>commons-lang</artifactId>
 		      <version>${version.commons-lang}</version>
 		    </dependency>
+		    <dependency>
+                <groupId>com.jatecnologia.commons</groupId>
+                <artifactId>jat-commons-core</artifactId>
+                <version>${version.jat-commons}</version>
+            </dependency>
             <dependency>
                 <groupId>com.jatecnologia.login</groupId>
                 <artifactId>jat-login-core</artifactId>

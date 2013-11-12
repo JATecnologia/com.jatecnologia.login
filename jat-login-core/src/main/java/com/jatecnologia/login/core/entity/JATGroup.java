@@ -3,7 +3,7 @@ package com.jatecnologia.login.core.entity;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -12,15 +12,17 @@ import java.util.List;
  */
 @Entity
 @Table(name="jat_group")
-@NamedQuery(name="JatGroup.findAll", query="SELECT j FROM JatGroup j")
-public class JatGroup implements Serializable {
+@NamedQuery(name="JATGroup.findAll", query="SELECT j FROM JATGroup j")
+public class JATGroup implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE)
-	private String name;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
 
 	private String email;
+
+	private String name;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="update_date")
@@ -29,19 +31,19 @@ public class JatGroup implements Serializable {
 	@Column(name="update_user")
 	private String updateUser;
 
-	//bi-directional many-to-one association to JatUserGroup
+	//bi-directional many-to-one association to JATUserGroup
 	@OneToMany(mappedBy="jatGroup")
-	private List<JatUserGroup> jatUserGroups;
+	private Set<JATUserGroup> jatUserGroups;
 
-	public JatGroup() {
+	public JATGroup() {
 	}
 
-	public String getName() {
-		return this.name;
+	public int getId() {
+		return this.id;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getEmail() {
@@ -50,6 +52,14 @@ public class JatGroup implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public Date getUpdateDate() {
@@ -68,22 +78,22 @@ public class JatGroup implements Serializable {
 		this.updateUser = updateUser;
 	}
 
-	public List<JatUserGroup> getJatUserGroups() {
+	public Set<JATUserGroup> getJatUserGroups() {
 		return this.jatUserGroups;
 	}
 
-	public void setJatUserGroups(List<JatUserGroup> jatUserGroups) {
+	public void setJatUserGroups(Set<JATUserGroup> jatUserGroups) {
 		this.jatUserGroups = jatUserGroups;
 	}
 
-	public JatUserGroup addJatUserGroup(JatUserGroup jatUserGroup) {
+	public JATUserGroup addJatUserGroup(JATUserGroup jatUserGroup) {
 		getJatUserGroups().add(jatUserGroup);
 		jatUserGroup.setJatGroup(this);
 
 		return jatUserGroup;
 	}
 
-	public JatUserGroup removeJatUserGroup(JatUserGroup jatUserGroup) {
+	public JATUserGroup removeJatUserGroup(JATUserGroup jatUserGroup) {
 		getJatUserGroups().remove(jatUserGroup);
 		jatUserGroup.setJatGroup(null);
 

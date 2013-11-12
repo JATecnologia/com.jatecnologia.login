@@ -1,7 +1,3 @@
 <jboss-web>
-  	<context-root>jat-login</context-root>
-  	<resource-ref>
-		<res-ref-name>jdbc/login-ds</res-ref-name>
-	  	<jndi-name>java:/login-ds</jndi-name>
-	</resource-ref>
+  	<context-root>jat-login</context-root>  	
 </jboss-web>

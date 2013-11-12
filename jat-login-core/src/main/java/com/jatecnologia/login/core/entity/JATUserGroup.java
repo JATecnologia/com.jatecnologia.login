@@ -11,12 +11,12 @@ import java.util.Date;
  */
 @Entity
 @Table(name="jat_user_group")
-@NamedQuery(name="JatUserGroup.findAll", query="SELECT j FROM JatUserGroup j")
-public class JatUserGroup implements Serializable {
+@NamedQuery(name="JATUserGroup.findAll", query="SELECT j FROM JATUserGroup j")
+public class JATUserGroup implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@EmbeddedId
-	private JatUserGroupPK id;
+	private JATUserGroupPK id;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="update_date")
@@ -25,24 +25,24 @@ public class JatUserGroup implements Serializable {
 	@Column(name="update_user")
 	private String updateUser;
 
-	//bi-directional many-to-one association to JatGroup
+	//bi-directional many-to-one association to JATUser
 	@ManyToOne
-	@JoinColumn(name="name_group")
-	private JatGroup jatGroup;
+	@JoinColumn(name="user_id", insertable = false, updatable = false)
+	private JATUser jatUser;
 
-	//bi-directional many-to-one association to JatUser
+	//bi-directional many-to-one association to JATGroup
 	@ManyToOne
-	@JoinColumn(name="user_login")
-	private JatUser jatUser;
+	@JoinColumn(name="group_id", insertable = false, updatable = false)	
+	private JATGroup jatGroup;
 
-	public JatUserGroup() {
+	public JATUserGroup() {
 	}
 
-	public JatUserGroupPK getId() {
+	public JATUserGroupPK getId() {
 		return this.id;
 	}
 
-	public void setId(JatUserGroupPK id) {
+	public void setId(JATUserGroupPK id) {
 		this.id = id;
 	}
 
@@ -62,20 +62,20 @@ public class JatUserGroup implements Serializable {
 		this.updateUser = updateUser;
 	}
 
-	public JatGroup getJatGroup() {
-		return this.jatGroup;
-	}
-
-	public void setJatGroup(JatGroup jatGroup) {
-		this.jatGroup = jatGroup;
-	}
-
-	public JatUser getJatUser() {
+	public JATUser getJatUser() {
 		return this.jatUser;
 	}
 
-	public void setJatUser(JatUser jatUser) {
+	public void setJatUser(JATUser jatUser) {
 		this.jatUser = jatUser;
+	}
+
+	public JATGroup getJatGroup() {
+		return this.jatGroup;
+	}
+
+	public void setJatGroup(JATGroup jatGroup) {
+		this.jatGroup = jatGroup;
 	}
 
 }

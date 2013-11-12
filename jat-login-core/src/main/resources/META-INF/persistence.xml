@@ -4,9 +4,13 @@
         xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
         version="2.0">
         <persistence-unit name="jatLoginPU" transaction-type="JTA">
-                <provider>org.hibernate.ejb.HibernatePersistence</provider>
-                <jta-data-source>java:comp/env/jdbc/login-ds</jta-data-source>
-                <jar-file>WEB-INF/lib/jat-login-core.jar</jar-file>
+                <provider>org.hibernate.ejb.HibernatePersistence</provider>                
+                <jta-data-source>java:/login-ds</jta-data-source>
+                <class>com.jatecnologia.login.core.entity.JATGroup</class>
+                <class>com.jatecnologia.login.core.entity.JATUser</class>
+                <class>com.jatecnologia.login.core.entity.JATUserGroup</class>
+                <class>com.jatecnologia.login.core.entity.JATUserGroupPK</class>
+<!--                 <jar-file>WEB-INF/lib/jat-login-core.jar</jar-file> -->
                 <properties>
                         <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
                         <property name="hibernate.show_sql" value="false" />

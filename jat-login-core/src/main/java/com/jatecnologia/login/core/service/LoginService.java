@@ -1,4 +1,4 @@
-package com.jatecnologia.login.web.service;
+package com.jatecnologia.login.core.service;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -6,24 +6,31 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import com.jatecnologia.login.core.entity.JatUser;
+import com.jatecnologia.login.core.entity.JATUser;
 
 @Stateless
 public class LoginService {
 	  @PersistenceContext
 	  private EntityManager em;
 	  
-	  public JatUser findByLoginAndPassword(String login, String password){
-		  Query query  = em.createQuery("SELECT u FROM JatUser u WHERE u.login = :login AND u.password = :password");
+	  public JATUser findByLoginAndPassword(String login){
+		  Query query  = em.createQuery("SELECT u FROM JATUser u WHERE u.login = :login");
 		  
 		  query.setParameter("login", login);
-		  query.setParameter("password", password);
 		  
 		  try{
-			  return (JatUser) query.getSingleResult();
+			  return (JATUser) query.getSingleResult();
 		  }catch (NoResultException ex){
 			  return null;
 		  }																																																																																																																																																																																													  
 	  }
+
+	public EntityManager getEm() {
+		return em;
+	}
+
+	public void setEm(EntityManager em) {
+		this.em = em;
+	} 
 	  
 }																																																																																						
