@@ -23,11 +23,9 @@
   	</context-param>
 	
 	<!-- CONFIGURACAO JAAS -->
-<!-- 	<security-constraint> -->
-	
+<!-- 	<security-constraint>	 -->
 <!--         <web-resource-collection> -->
-<!--             <web-resource-name>JAT-Login</web-resource-name> -->
-            
+<!--             <web-resource-name>jasJATLogin</web-resource-name> -->
 <!--             <url-pattern>/cadastro/*</url-pattern> -->
 <!--             <url-pattern>/matricula/*</url-pattern> -->
 <!--         </web-resource-collection> -->
@@ -50,38 +48,54 @@
         
 <!--     </security-constraint> -->
     
-<!--     <security-constraint> -->
-<!--         <web-resource-collection> -->
-<!--             <web-resource-name>todos os usuario logados</web-resource-name> -->
-<!--             <url-pattern>/layout/*</url-pattern> -->
-<!--         </web-resource-collection> -->
-<!--         <auth-constraint> -->
-<!--             <role-name>PUBLIC_ROLE</role-name>   -->
-<!--         </auth-constraint> -->
-<!--     </security-constraint> -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>todos os usuario logados</web-resource-name>
+            <url-pattern>/pages/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>Publics</role-name>  
+        </auth-constraint>
+    </security-constraint>
     
-<!--     <security-constraint>   -->
-<!--           <web-resource-collection>   -->
-<!--                 <web-resource-name>HTTP PAGES</web-resource-name>   -->
-<!--                 <url-pattern>/*</url-pattern>   -->
-<!--                 <http-method>GET</http-method>   -->
-<!--                 <http-method>POST</http-method>   -->
-<!--           </web-resource-collection>   -->
-<!--           <user-data-constraint>   -->
-<!--                <transport-guarantee>CONFIDENTIAL</transport-guarantee>   -->
-<!--           </user-data-constraint>   -->
-<!--    </security-constraint>   -->
+    <security-constraint>  
+          <web-resource-collection>  
+                <web-resource-name>HTTP PAGES</web-resource-name>  
+                <url-pattern>/*</url-pattern>  
+                <http-method>GET</http-method>  
+                <http-method>POST</http-method>  
+          </web-resource-collection>  
+          <user-data-constraint>  
+               <transport-guarantee>CONFIDENTIAL</transport-guarantee>  
+          </user-data-constraint>  
+   </security-constraint>  
   
 <!--   <security-role> -->
 <!-- 			<role-name>SECRETARIA_ROLE</role-name> -->
 <!--   </security-role> -->
-<!-- 	<security-role> -->
-<!--       <role-name>DIRETOR_ALUNO_ROLE</role-name> -->
-<!--     </security-role> -->
-<!--   <security-role> -->
-<!--       <role-name>PUBLIC_ROLE</role-name> -->
-<!--     </security-role> -->
-<!--     <security-role> -->
-<!--       <role-name>ADMIN_ROLE</role-name> -->
-<!--     </security-role> -->
+
+ <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>jasJATLogin</realm-name>
+        <form-login-config>
+            <form-login-page>/login.xhtml</form-login-page>
+            <form-error-page>/pages/login_erro.xhtml</form-error-page>
+        </form-login-config>
+    </login-config>
+    
+    <error-page>
+    	<error-code>403</error-code>
+    	<location>/pages/erro403.xhtml</location>
+    </error-page>
+
+
+	<security-role>
+      <role-name>Publics</role-name>
+    </security-role>
+  	<security-role>
+      <role-name>Developers</role-name>
+    </security-role>
+    <security-role>
+      <role-name>Administrators</role-name>
+    </security-role>
 </web-app>

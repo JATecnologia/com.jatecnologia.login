@@ -62,7 +62,7 @@ public class LoginMB implements Serializable{
         if(user!=null) {
         	
         	// Criptografa a senha informada na pagina de login
-			String encryptedPassword = EncryptionUtil.generatePasswordSHA256(password);
+			String encryptedPassword = EncryptionUtil.generateHash(password, EncryptionUtil.SHA256);
         				
 			if (!user.getPassword().equals(encryptedPassword)) {
 				loggedIn = false;

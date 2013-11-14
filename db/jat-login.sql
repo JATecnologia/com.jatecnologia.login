@@ -33,4 +33,26 @@ CREATE TABLE jat_user_group(
 	CONSTRAINT fk_group_id FOREIGN KEY (group_id) REFERENCES jat_group (id)
 ) ENGINE=InnoDB;
 
+CREATE TABLE jat_customer(
+	id              INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	fist_name
+	surname
+	birth_date
+	gender ENUM('M', 'F')
+	actived			
+	email			VARCHAR(50) NOT NULL,
+	create_date		DATETIME    NOT NULL DEFAULT NOW(), 
+	update_date		DATETIME    NOT NULL,
+	update_user		VARCHAR(25) NOT NULL,
+
+) ENGINE=InnoDB;
+
+CREATE TABLE jat_customer_contact(
+
+)ENGINE=InnoDB;
+
+CREATE TABLE jat_customer_address(
+
+)ENGINE=InnoDB;
+
 COMMIT;
