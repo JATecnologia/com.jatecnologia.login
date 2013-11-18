@@ -70,18 +70,18 @@ public class LoginMB implements Serializable{
         	}
 			else{
 			
-//				try {
-//					//Registra no dominio de segurança o usuario e senha
-//					FacesContext fc = FacesContext.getCurrentInstance(); 
-//					HttpServletRequest request = (HttpServletRequest)fc.getExternalContext().getRequest();	
-//					request.login(login, password);
-//					
-//					System.out.println("============ ROLES ===============");
-//					
-//					System.out.println("USUARIO "   + FacesContext.getCurrentInstance().getExternalContext().getUserPrincipal().getName());
-//					
-//					System.out.println(FacesContext.getCurrentInstance().getExternalContext().isUserInRole("SECRETARIA_ROLE"));
-//					System.out.println(FacesContext.getCurrentInstance().getExternalContext().isUserInRole("DIRETOR_ALUNO_ROLE"));
+				try {
+					//Registra no dominio de segurança o usuario e senha
+					FacesContext fc = FacesContext.getCurrentInstance(); 
+					HttpServletRequest request = (HttpServletRequest)fc.getExternalContext().getRequest();	
+					request.login(login, password);
+					
+					System.out.println("============ ROLES ===============");
+					
+					System.out.println("USUARIO "   + FacesContext.getCurrentInstance().getExternalContext().getUserPrincipal().getName());
+					
+					System.out.println(FacesContext.getCurrentInstance().getExternalContext().isUserInRole("Administrators"));
+					System.out.println(FacesContext.getCurrentInstance().getExternalContext().isUserInRole("Developers"));
 //	
 //					System.out.println(FacesContext.getCurrentInstance().getExternalContext().isUserInRole("PUBLIC_ROLE"));
 //	
@@ -103,10 +103,10 @@ public class LoginMB implements Serializable{
 //					System.out.println(request.isUserInRole("SECRETARIA"));
 //					System.out.println(request.isUserInRole("ADMIN"));
 //					System.out.println(request.isUserInRole("ALUNO"));
-//				} catch (Throwable e) {
-//					e.printStackTrace();
-//					msg = new FacesMessage(FacesMessage.SEVERITY_WARN, "Login Error", "Invalid credentials");
-//				}			
+				} catch (Throwable e) {
+					e.printStackTrace();
+					msg = new FacesMessage(FacesMessage.SEVERITY_WARN, "Login Error", "Invalid credentials");
+				}			
         	
 				loggedIn = true;  
 				msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", login);

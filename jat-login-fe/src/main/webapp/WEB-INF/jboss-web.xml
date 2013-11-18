@@ -1,3 +1,4 @@
 <jboss-web>
-  	<context-root>jat-login</context-root>  	
+  	<context-root>jat-login</context-root>
+  	<security-domain>java:/jaas/jasJATLogin</security-domain>  	
 </jboss-web>
